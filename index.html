@@ -3,30 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>심's Portfolio - DB Engineer</title>
+    <title>심's Portfolio - Data Engineer</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        /* 프로젝트 내부 스타일 */
-        .project-details h5 { font-size: 1.1rem; color: #007bff; margin-top: 20px; margin-bottom: 10px; border-bottom: 2px solid #eee; padding-bottom: 5px; display: inline-block;}
-        .project-details ul { margin-left: 20px; margin-bottom: 15px; }
-        .project-details li { list-style-type: disc; margin-bottom: 5px; color: #555; }
-        .project-details strong { color: #333; font-weight: 700; }
-        .project-meta { color: #666; font-size: 0.9rem; margin-bottom: 20px; background: #f4f4f4; padding: 10px; border-radius: 5px; }
-        hr { border: 0; border-top: 1px solid #eee; margin: 20px 0; }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <header>
         <div class="container">
-            <h1><a href="#">Sim's Portfolio</a></h1>
+            <h1><a href="#">Sim.Dev</a></h1>
             <nav>
                 <ul>
-                    <li><a href="#about">소개</a></li>
-                    <li><a href="#skills">기술 스택</a></li>
-                    <li><a href="#projects">프로젝트</a></li>
-                    <li><a href="#contact">연락처</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Project</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -34,117 +25,150 @@
 
     <section class="hero">
         <div class="hero-content">
-            <h2>데이터의 안정성과 성능을 설계하는<br>DB 엔지니어 지망생입니다.</h2>
-            <p>단순한 기능 구현을 넘어, 효율적인 쿼리와 견고한 아키텍처를 고민합니다.</p>
-            <a href="#projects" class="btn">프로젝트 보기</a>
+            <h2>Data Reliability Engineer<br><span style="font-weight:400; font-size: 2rem;">Junior Portfolio</span></h2>
+            <p>데이터의 흐름을 설계하고 시스템의 안정성을 책임지는 엔지니어입니다.</p>
+            <a href="#projects" class="btn">핵심 프로젝트 보기</a>
         </div>
     </section>
 
     <section id="about" class="container section-padding">
         <h3>About Me</h3>
-        <p>
-            <b>"데이터가 흐르는 가장 효율적인 길을 찾습니다."</b><br><br>
-            애플리케이션의 성능은 결국 데이터베이스에서 결정된다고 믿습니다. 
-            백엔드 개발 과정을 통해 데이터 모델링과 쿼리 최적화의 중요성을 깊이 체감했습니다.
-            <br><br>
-            <b>SQLD 자격증</b>을 취득하며 관계형 데이터베이스의 이론적 토대를 다졌으며, 
-            실무 프로젝트를 통해 <b>동시성 제어(Concurrency Control)</b>와 <b>인덱스 튜닝</b>을 통해 성능을 개선하는 과정에 큰 흥미를 느꼈습니다.
-            <br><br>
-            비즈니스의 요구사항을 정확한 데이터 모델로 변환하고, 
-            대용량 트래픽 상황에서도 데이터 무결성을 지키는 믿음직한 DB 엔지니어로 성장하고 싶습니다.
+        <p style="text-align: center; max-width: 800px; margin: 0 auto; font-size: 1.1rem; color: #555;">
+            <b>"안정적인 데이터 아키텍처가 서비스의 품질을 결정합니다."</b><br><br>
+            백엔드 개발을 공부하며 데이터 모델링과 쿼리 최적화의 매력에 빠졌습니다.<br>
+            <b>SQLD 자격증</b>으로 다진 이론적 기반 위에, 실제 프로젝트에서 <b>동시성 제어</b>와 <b>인덱스 튜닝</b>을 수행하며 
+            성능 개선을 이끌어낸 경험이 있습니다. <br>
+            화려한 기능보다는 <b>견고한 데이터 구조</b>를 설계하는 것에 자부심을 느낍니다.
         </p>
     </section>
 
     <section id="skills" class="bg-light section-padding">
         <div class="container">
-            <h3>Tech Stack</h3>
+            <h3>Technical Skills</h3>
             <div class="skills-grid">
                 <div class="skill-card">
-                    <h4>Database</h4>
-                    <p>MySQL 8.0</p>
-                    <p>AWS RDS / Aurora</p>
-                    <p>Query Tuning</p>
+                    <h4>Database Engineering</h4>
+                    <p>MySQL 8.0 / Aurora</p>
+                    <p>Query Optimization</p>
+                    <p>Transaction & Locking</p>
                 </div>
                 <div class="skill-card">
-                    <h4>Backend Understanding</h4>
+                    <h4>Backend Development</h4>
                     <p>Python FastAPI</p>
                     <p>SQLAlchemy (ORM)</p>
-                    <p>Transaction Management</p>
+                    <p>RESTful API Design</p>
                 </div>
                 <div class="skill-card">
-                    <h4>DevOps</h4>
-                    <p>AWS EC2</p>
-                    <p>Docker</p>
-                    <p>Linux Environment</p>
+                    <h4>Infrastructure</h4>
+                    <p>AWS (EC2, RDS, S3)</p>
+                    <p>Docker & Linux</p>
+                    <p>CI/CD Basic</p>
                 </div>
                 <div class="skill-card">
-                    <h4>Certificates</h4>
+                    <h4>Certifications</h4>
                     <p>SQLD (SQL 개발자)</p>
-                    <p>데이터 모델링</p>
-                    <p>SQL 활용</p>
+                    <p>ADsP (데이터 분석 준전문가)</p>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="projects" class="container section-padding">
-        <h3>Main Project</h3>
+        <h3>Featured Project</h3>
         
-        <div class="project-card">
-            <h4>✈️ Travel Link (AI 기반 여행 계획 공유 플랫폼)</h4>
-            
-            <div class="project-meta">
-                <strong>Period:</strong> 2025.03 ~ 2025.12 &nbsp;|&nbsp; 
-                <strong>Role:</strong> DB Architect & Backend Developer &nbsp;|&nbsp; 
-                <strong>Category:</strong> DB Engineering
+        <div class="project-card-link" onclick="openModal()">
+            <div class="card-body">
+                <span style="color:#007bff; font-weight:bold; font-size:0.9rem;">PERSONAL PROJECT</span>
+                <h4>✈️ Travel Link</h4>
+                <p class="summary">
+                    AI 기반 여행 계획 공유 플랫폼 & DB 아키텍처 설계 프로젝트<br>
+                    <span style="font-size: 0.9rem; color: #888;">(동시성 제어 및 쿼리 튜닝 성과 포함)</span>
+                </p>
+                <div class="tags">
+                    <span>MySQL 8.0</span>
+                    <span>AWS Aurora</span>
+                    <span>FastAPI</span>
+                    <span>Concurrency Control</span>
+                </div>
+                <div class="click-hint">자세한 내용 보기 ↗</div>
             </div>
-
-            <div class="project-details">
-                <h5>1. 프로젝트 개요</h5>
-                <ul>
-                    <li><strong>서비스명:</strong> Travel Link</li>
-                    <li><strong>기술 스택:</strong> Python FastAPI, SQLAlchemy, <strong>MySQL 8.0</strong>, AWS RDS</li>
-                    <li><strong>나의 역할:</strong> 데이터베이스 설계 및 백엔드 API 개발 총괄</li>
-                </ul>
-
-                <h5>2. 핵심 DB 설계 (JSON Modeling)</h5>
-                <p>AI가 생성하는 가변적인 여행 일정 데이터를 처리하기 위해 <strong>RDBMS와 NoSQL(JSON)의 장점을 결합한 Hybrid 설계</strong>를 도입했습니다.</p>
-                <ul>
-                    <li><strong>문제:</strong> 일정을 정규화할 경우 조회 시 수백 개의 Row를 <code>JOIN</code>해야 하는 오버헤드 발생.</li>
-                    <li><strong>해결:</strong> MySQL 8.0 <strong>JSON Type</strong> 도입 및 <code>Check Constraint</code>로 무결성 확보.</li>
-                    <li><strong>성과:</strong> 상세 조회 쿼리 단순화 및 응답 속도 최적화.</li>
-                </ul>
-
-                <h5>3. 동시성 제어 (Concurrency Control)</h5>
-                <p>선착순 모집 시 발생하는 <strong>초과 예약(Over-booking) 문제</strong>를 해결했습니다.</p>
-                <ul>
-                    <li><strong>상황:</strong> 정원 1명 남았을 때 동시 요청 발생.</li>
-                    <li><strong>해결:</strong> <strong>비관적 락(Pessimistic Lock, <code>FOR UPDATE</code>)</strong>을 적용하여 트랜잭션 격리 수준을 엄격하게 관리.</li>
-                    <li><strong>결과:</strong> JMeter 부하 테스트 결과, 동시성 이슈 <strong>0건</strong> 방어 성공.</li>
-                </ul>
-
-                <h5>4. 성능 최적화</h5>
-                <p>메인 리스트 조회 시 발생하는 <strong>FileSort</strong>를 제거하여 성능을 개선했습니다.</p>
-                <ul>
-                    <li><strong>해결:</strong> <code>(destination, created_at)</code> 복합 인덱스(Composite Index) 적용.</li>
-                    <li><strong>성과:</strong> 조회 속도 <strong>0.45s → 0.03s</strong>로 약 15배 개선.</li>
-                </ul>
-            </div>
-            
-            <br>
-            <a href="https://github.com/damuljang1547" class="link-btn" target="_blank">📂 GitHub 소스코드 & ERD 보기</a>
         </div>
 
     </section>
+
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            
+            <div class="modal-body">
+                <h2>Travel Link Project</h2>
+                <div class="meta">
+                    <strong>Period:</strong> 2025.03 ~ 2025.12 &nbsp;|&nbsp; 
+                    <strong>Role:</strong> DB Architect & Backend Developer
+                </div>
+
+                <h5>1. 프로젝트 개요</h5>
+                <p>사용자의 취향을 분석하여 여행 경로를 추천하고 공유하는 플랫폼입니다.</p>
+                <ul>
+                    <li><strong>기술 스택:</strong> Python FastAPI, SQLAlchemy, <strong>MySQL 8.0</strong>, AWS RDS</li>
+                    <li><strong>핵심 기여:</strong> DB 스키마 설계, 트랜잭션 관리, 성능 최적화</li>
+                </ul>
+
+                <h5>2. 핵심 DB 설계 (JSON Modeling)</h5>
+                <p>AI가 생성하는 비정형 여행 데이터 처리를 위해 <strong>Hybrid 설계</strong>를 도입했습니다.</p>
+                <ul>
+                    <li><strong>문제:</strong> 정규화 시 수백 개의 Row를 <code>JOIN</code>해야 하는 조회 성능 저하 발생.</li>
+                    <li><strong>해결:</strong> MySQL 8.0 <strong>JSON Type</strong> 도입 및 <code>Check Constraint</code>로 무결성 확보.</li>
+                    <li><strong>성과:</strong> 복잡한 조회를 단일 쿼리로 처리하여 응답 속도 최적화.</li>
+                </ul>
+
+                <h5>3. 동시성 제어 (Concurrency Control)</h5>
+                <p>선착순 모집 기능에서 발생하는 <strong>초과 예약(Over-booking) 문제</strong>를 해결했습니다.</p>
+                <ul>
+                    <li><strong>상황:</strong> 마지막 1자리 예약 시 다수의 요청이 동시에 들어오는 Race Condition 발생.</li>
+                    <li><strong>해결:</strong> <strong>비관적 락(Pessimistic Lock, <code>FOR UPDATE</code>)</strong>을 적용하여 데이터 정합성 보장.</li>
+                    <li><strong>결과:</strong> JMeter 부하 테스트 결과, 동시성 오류 <strong>0%</strong> 달성.</li>
+                </ul>
+
+                <h5>4. 성능 최적화 (Query Tuning)</h5>
+                <p>메인 리스트 조회 시 발생하는 <strong>FileSort</strong>를 제거했습니다.</p>
+                <ul>
+                    <li><strong>해결:</strong> <code>(destination, created_at)</code> 복합 인덱스(Composite Index) 설계 및 적용.</li>
+                    <li><strong>성과:</strong> 조회 속도 <strong>0.45s → 0.03s</strong>로 약 15배 개선.</li>
+                </ul>
+
+                <a href="https://github.com/damuljang1547" class="github-btn" target="_blank">GitHub 저장소 방문하기</a>
+            </div>
+        </div>
+    </div>
 
     <footer id="contact">
         <div class="container">
             <h3>Contact</h3>
             <p>Email: damuljang1547@example.com</p>
-            <p>GitHub: <a href="https://github.com/damuljang1547" style="color:white;" target="_blank">github.com/damuljang1547</a></p>
+            <p>GitHub: github.com/damuljang1547</p>
             <p class="copyright">© 2025 Sim's Portfolio.</p>
         </div>
     </footer>
 
+    <script>
+        // 모달 열기
+        function openModal() {
+            document.getElementById('projectModal').style.display = 'block';
+            document.body.style.overflow = 'hidden'; // 스크롤 막기
+        }
+        // 모달 닫기
+        function closeModal() {
+            document.getElementById('projectModal').style.display = 'none';
+            document.body.style.overflow = 'auto'; // 스크롤 풀기
+        }
+        // 배경 클릭 시 닫기
+        window.onclick = function(event) {
+            var modal = document.getElementById('projectModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
 </body>
 </html>
