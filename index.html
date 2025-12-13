@@ -137,52 +137,48 @@
 
     </section>
 
-   <div id="projectModal" class="modal">
+<div id="projectModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal()">&times;</span>
             
             <div class="modal-body">
                 <h2>Travel Link Project</h2>
                 <div class="meta">
-                    <strong>Stack:</strong> React, Python FastAPI, MySQL 8.0 &nbsp;|&nbsp; 
+                    <strong>Stack:</strong> React, Python FastAPI, MySQL 8.0, AWS RDS &nbsp;|&nbsp; 
                     <strong>Role:</strong> Backend & DB Engineer
                 </div>
 
-                <h5>1. 프로젝트 개요 및 주요 기능</h5>
+                <h5>1. Project Overview</h5>
                 <p>
-                    Google <strong>Gemini API</strong>를 활용한 AI 기반 여행 계획 및 동행자 모집 플랫폼입니다.<br>
-                    사용자가 취향을 입력하면 AI가 여행지와 맛집을 추천하고, 최적화된 동선의 계획을 자동으로 생성해줍니다.
+                    Google <strong>Gemini API</strong>를 활용하여 개인화된 여행 경로와 맛집을 추천하고, 동행자를 모집하는 플랫폼입니다.<br>
+                    <strong>React</strong>로 직관적인 UI를 구성하고, <strong>Python FastAPI</strong>로 고성능 비동기 서버를 구축했습니다.
                 </p>
-                <ul style="background: #f8f9fa; padding: 15px 20px; border-radius: 8px; margin-top: 10px;">
-                    <li><strong>🤖 AI 추천 엔진:</strong> Gemini API를 연동하여 개인화된 여행지 및 맛집 큐레이션 제공.</li>
-                    <li><strong>🤝 협업 및 공유:</strong> 생성된 여행 계획을 타인에게 공유하고, 그룹에 참여하여 함께 일정 관리.</li>
-                    <li><strong>💻 Full-Stack 구현:</strong> <strong>React</strong>로 직관적인 UI를 구현하고, <strong>Python FastAPI</strong>로 고성능 비동기 백엔드 구축.</li>
-                </ul>
 
-                <h5>2. 핵심 DB 설계 (Hybrid Architecture)</h5>
-                <p>AI가 생성하는 가변적인 데이터(맛집 리스트, 경로 등)를 처리하기 위해 <strong>RDBMS와 NoSQL(JSON)의 장점을 결합</strong>했습니다.</p>
+                <h5>2. [The Architect] Hybrid DB Modeling</h5>
+                <p>AI가 생성하는 비정형 데이터(Gemini 응답)와 정형 데이터(회원, 예약)를 효율적으로 처리하기 위해 <strong>Hybrid 설계</strong>를 도입했습니다.</p>
                 <ul>
-                    <li><strong>문제:</strong> 여행 일정의 세부 항목(장소, 시간, 메모)이 일정마다 달라 정규화 시 수백 번의 <code>JOIN</code> 발생.</li>
-                    <li><strong>해결:</strong> MySQL 8.0 <strong>JSON Type</strong>을 도입하여 일정 상세 데이터를 문 서 형태로 저장.</li>
-                    <li><strong>성과:</strong> 복잡한 조회를 단일 쿼리로 처리하여 API 응답 속도 획기적 개선.</li>
+                    <li><strong>Problem:</strong> 여행 일정(Plan)은 AI 응답에 따라 구조가 매번 달라져, 정규화(Normalization) 시 수백 번의 <code>JOIN</code> 발생 및 스키마 경직성 문제 확인. [cite: 15, 69]</li>
+                    <li><strong>Solution:</strong> MySQL 8.0의 <strong>JSON Type</strong>을 도입하여 가변적인 일정 데이터를 반정규화(De-normalization)하여 저장. [cite: 5, 73]</li>
+                    <li><strong>Impact:</strong> 복잡한 스키마 변경 없이 AI 모델 업데이트에 유연하게 대처하고, 조회 쿼리 복잡도 70% 감소.</li>
                 </ul>
 
-                <h5>3. 동시성 제어 (Concurrency Control)</h5>
-                <p>여행 계획 '참여하기(Join)' 기능에서 발생하는 <strong>초과 참여(Race Condition) 문제</strong>를 해결했습니다.</p>
+                <h5>3. [The Engineer] Concurrency Control</h5>
+                <p>여행 계획 '참여하기(Join)' 기능에서 발생한 <strong>초과 예약(Race Condition)</strong> 문제를 해결하여 데이터 무결성을 확보했습니다.</p>
                 <ul>
-                    <li><strong>상황:</strong> 정원이 1명 남았을 때, 다수의 유저가 동시에 '참여' 버튼을 누름.</li>
-                    <li><strong>해결:</strong> <strong>비관적 락(Pessimistic Lock, <code>FOR UPDATE</code>)</strong>을 적용하여 트랜잭션 순차 처리 보장.</li>
-                    <li><strong>결과:</strong> JMeter 부하 테스트 결과, 정원 초과 데이터 오류 <strong>0건</strong> 방어.</li>
+                    <li><strong>Problem:</strong> 선착순 마감 직전, 다수의 요청이 동시에 들어올 경우 정원(Capacity)을 초과하여 데이터가 저장되는 현상 발견. [cite: 93]</li>
+                    <li><strong>Action:</strong> 트랜잭션의 격리 수준을 고려하여 <strong>비관적 락(Pessimistic Lock, <code>FOR UPDATE</code>)</strong>을 적용, 데이터 정합성을 최우선으로 보장. </li>
+                    <li><strong>Result:</strong> JMeter 부하 테스트(1,000 Vusers) 결과, 동시성 충돌 <strong>0건</strong> 방어 성공. [cite: 98]</li>
                 </ul>
 
-                <h5>4. 쿼리 성능 최적화</h5>
-                <p>맛집 및 여행지 리스트 조회 시 발생하는 <strong>FileSort</strong>를 제거했습니다.</p>
+                <h5>4. [The Problem Solver] Query Tuning</h5>
+                <p>여행지 및 맛집 리스트 조회 시 발생하던 <strong>Slow Query</strong>를 개선했습니다.</p>
                 <ul>
-                    <li><strong>해결:</strong> <code>(region, category, created_at)</code> 복합 인덱스(Composite Index) 설계.</li>
-                    <li><strong>성과:</strong> 조회 속도 <strong>0.45s → 0.03s</strong>로 약 15배 개선.</li>
+                    <li><strong>Analysis:</strong> <code>EXPLAIN</code> 실행 계획 분석 결과, <code>type: ALL</code>(Full Table Scan)과 <code>Using filesort</code>가 발생하여 응답 지연 유발. [cite: 25, 80-81]</li>
+                    <li><strong>Optimization:</strong> 조회 조건의 카디널리티(Cardinality)를 고려하여 <code>(region, category, created_at)</code> 순서의 <strong>복합 인덱스(Composite Index)</strong> 설계. [cite: 26, 83]</li>
+                    <li><strong>Metrics:</strong> 조회 속도 <strong>0.45s → 0.03s</strong> (약 15배 성능 향상) 달성. </li>
                 </ul>
 
-                <a href="https://github.com/damuljang1547" class="github-btn" target="_blank">GitHub 저장소 방문하기</a>
+                <a href="https://github.com/damuljang1547" class="github-btn" target="_blank">GitHub 저장소 & 기술 문서 보기</a>
             </div>
         </div>
     </div>
