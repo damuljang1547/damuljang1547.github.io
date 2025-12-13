@@ -258,3 +258,76 @@ footer { background: #f8f9fa; color: #666; text-align: center; padding: 80px 0; 
     .info-row .label { width: auto; margin-bottom: 5px; color: var(--primary-color);}
     .info-row .icon { display: none; } /* 모바일에서는 아이콘 숨김 (깔끔하게) */
 }
+
+.slider-container {
+    position: relative;
+    max-width: 100%;
+    margin: 20px 0;
+    overflow: hidden; /* 넘치는 이미지 숨김 */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    background: #000; /* 이미지가 로딩 안될 때 배경 */
+}
+
+.slider-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out; /* 부드러운 넘김 효과 */
+    width: 100%;
+}
+
+.slide {
+    min-width: 100%; /* 슬라이드 하나가 컨테이너 꽉 차게 */
+    box-sizing: border-box;
+}
+
+.slide img {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 16 / 9; /* 16:9 비율 유지 (유튜브 썸네일 비율) */
+    object-fit: cover; /* 꽉 차게 */
+}
+
+/* 좌우 버튼 */
+.prev-btn, .next-btn {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px; height: 40px;
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 18px;
+    display: flex; align-items: center; justify-content: center;
+    transition: 0.3s;
+    user-select: none;
+}
+
+.prev-btn { left: 15px; }
+.next-btn { right: 15px; }
+.prev-btn:hover, .next-btn:hover { background-color: rgba(0,0,0,0.8); }
+
+/* 하단 점 (Indicator) */
+.slider-dots {
+    position: absolute;
+    bottom: 15px;
+    width: 100%;
+    text-align: center;
+}
+
+.dot {
+    cursor: pointer;
+    height: 10px;
+    width: 10px;
+    margin: 0 5px;
+    background-color: rgba(255,255,255,0.5);
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.active, .dot:hover {
+    background-color: white;
+}
