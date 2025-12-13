@@ -1,125 +1,169 @@
-/* 기본 설정 */
+/* =========================================
+   다크 모드 개발자 테마 (Dark Mode Developer Theme)
+   ========================================= */
+
+/* 1. 기본 설정 및 변수 */
+:root {
+    --bg-color: #121212;       /* 아주 어두운 회색 (거의 검정) */
+    --card-bg: #1e1e1e;        /* 카드 배경색 */
+    --text-main: #e0e0e0;      /* 메인 텍스트 (흰색에 가까운 회색) */
+    --text-sub: #a0a0a0;       /* 보조 텍스트 (회색) */
+    --accent: #64ffda;         /* 포인트 컬러 (형광 민트색 - 코딩 느낌) */
+    --accent-hover: #00bfa5;   /* 호버 시 포인트 컬러 */
+    --nav-bg: rgba(18, 18, 18, 0.95); /* 헤더 배경 (반투명) */
+}
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Noto Sans KR', sans-serif; line-height: 1.6; color: #333; }
-a { text-decoration: none; color: inherit; }
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    line-height: 1.7;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+}
+
+a { text-decoration: none; color: inherit; transition: 0.3s; }
 ul { list-style: none; }
 
-/* 레이아웃 및 공통 */
-.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-.section-padding { padding: 80px 0; }
-.bg-light { background-color: #f8f9fa; }
-h3 { font-size: 2rem; margin-bottom: 40px; text-align: center; font-weight: 700; letter-spacing: -1px; }
+/* 레이아웃 공통 */
+.container { max-width: 1000px; margin: 0 auto; padding: 0 25px; }
+.section-padding { padding: 100px 0; }
+.bg-light { background-color: #181818; } /* 배경보다 아주 조금 밝음 */
 
-/* 헤더 */
-header { background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: fixed; width: 100%; top: 0; z-index: 1000; }
+/* 타이포그래피 포인트 */
+h1, h2, h3, h4 { color: #ffffff; letter-spacing: -0.5px; }
+h3 {
+    font-size: 2rem; margin-bottom: 50px; text-align: center;
+    position: relative; display: inline-block; left: 50%; transform: translateX(-50%);
+}
+/* 제목 밑줄 효과 */
+h3::after {
+    content: ''; display: block; width: 50px; height: 3px;
+    background-color: var(--accent); margin: 15px auto 0;
+}
+
+/* 2. 헤더 (네비게이션) */
+header {
+    background: var(--nav-bg);
+    border-bottom: 1px solid #333;
+    position: fixed; width: 100%; top: 0; z-index: 1000;
+    backdrop-filter: blur(10px);
+}
 header .container { display: flex; justify-content: space-between; align-items: center; height: 70px; }
-header h1 a { font-weight: 800; font-size: 1.5rem; color: #111; }
+header h1 a { font-weight: 900; font-size: 1.4rem; color: var(--accent); font-family: 'Courier New', monospace; } /* 로고는 코딩 폰트 */
 header nav ul { display: flex; gap: 30px; }
-header nav a { font-weight: 500; color: #555; transition: 0.3s; }
-header nav a:hover { color: #007bff; }
+header nav a { font-size: 0.95rem; color: var(--text-sub); font-weight: 500; }
+header nav a:hover { color: var(--accent); }
 
-/* 히어로 섹션 */
+/* 3. 히어로 섹션 (심플 & 임팩트) */
 .hero {
     height: 100vh;
-    background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+    display: flex; align-items: center; justify-content: center; text-align: center;
+    background: radial-gradient(circle at center, #252525 0%, #121212 70%); /* 은은한 조명 효과 */
 }
-.hero h2 { font-size: 3.5rem; margin-bottom: 20px; font-weight: 800; leading-trim: both; }
-.hero p { font-size: 1.2rem; color: rgba(255,255,255,0.8); margin-bottom: 40px; }
+.hero h2 { font-size: 3.5rem; margin-bottom: 25px; line-height: 1.2; }
+.hero p { font-size: 1.1rem; color: var(--text-sub); margin-bottom: 40px; font-weight: 300; }
+
+/* 버튼 스타일 (형광 테두리) */
 .btn {
     display: inline-block;
-    background: #007bff;
-    color: white;
-    padding: 12px 35px;
-    border-radius: 50px;
+    background: transparent;
+    color: var(--accent);
+    padding: 12px 30px;
+    border: 2px solid var(--accent);
+    border-radius: 4px; /* 각진 모서리 */
     font-weight: bold;
-    transition: 0.3s;
-    box-shadow: 0 4px 15px rgba(0,123,255,0.4);
+    font-family: 'Courier New', monospace; /* 코딩 느낌 */
 }
-.btn:hover { background: #0056b3; transform: translateY(-2px); }
+.btn:hover {
+    background: rgba(100, 255, 218, 0.1);
+    transform: translateY(-3px);
+}
 
-/* 기술 스택 그리드 */
-.skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; }
+/* 4. 소개 (About) & 텍스트 */
+#about p b { color: var(--accent); font-weight: 600; }
+
+/* 5. 기술 스택 (카드 디자인) */
+.skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
 .skill-card {
-    background: white; padding: 30px; border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: 0.3s;
-    border-top: 4px solid #007bff;
-}
-.skill-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-.skill-card h4 { font-size: 1.2rem; margin-bottom: 15px; color: #111; }
-.skill-card p { font-size: 0.95rem; color: #666; margin-bottom: 5px; }
-
-/* 프로젝트 카드 (클릭 가능한 디자인) */
-.project-card-link {
-    display: block;
-    background: white;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 8px;
     transition: 0.3s;
-    cursor: pointer;
-    border: 1px solid #eee;
-    max-width: 800px;
-    margin: 0 auto;
+    border: 1px solid #333;
 }
-.project-card-link:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.15); border-color: #007bff; }
+.skill-card:hover { border-color: var(--accent); transform: translateY(-5px); }
+.skill-card h4 { color: var(--accent); margin-bottom: 15px; font-size: 1.1rem; }
+.skill-card p { color: var(--text-sub); font-size: 0.9rem; margin-bottom: 5px; }
+
+/* 6. 프로젝트 카드 (클릭 유도) */
+.project-card-link {
+    background: var(--card-bg);
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid #333;
+    max-width: 800px; margin: 0 auto;
+    transition: 0.3s;
+    position: relative;
+}
+.project-card-link:hover {
+    border-color: var(--accent);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transform: translateY(-5px);
+}
 .card-body { padding: 40px; text-align: center; }
-.card-body h4 { font-size: 2rem; margin-bottom: 15px; color: #111; }
-.card-body .summary { color: #666; margin-bottom: 20px; }
-.click-hint { color: #007bff; font-weight: bold; font-size: 0.9rem; margin-top: 15px; display: inline-block; border-bottom: 1px solid transparent; }
-.project-card-link:hover .click-hint { border-bottom: 1px solid #007bff; }
+.card-body h4 { font-size: 2rem; margin-bottom: 15px; color: #fff; }
+.card-body .summary { color: var(--text-sub); margin-bottom: 25px; }
+.click-hint {
+    color: var(--accent); font-size: 0.9rem; margin-top: 20px; display: inline-block;
+    border-bottom: 1px dashed var(--accent);
+}
 
 /* 태그 스타일 */
-.tags { margin-top: 15px; }
 .tags span {
-    display: inline-block; background: #eef4fb; color: #007bff;
-    padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 600;
-    margin: 0 5px 5px 0;
+    display: inline-block; background: #252525; color: var(--accent);
+    padding: 5px 12px; border-radius: 4px; font-size: 0.8rem;
+    margin: 0 5px 5px 0; font-family: monospace; /* 코드 느낌 */
 }
 
-/* 팝업 모달 (상세보기) 스타일 */
+/* 7. 모달 팝업 (다크 모드 적용) */
 .modal {
-    display: none; /* 기본적으로 숨김 */
-    position: fixed; z-index: 2000; left: 0; top: 0;
+    display: none; position: fixed; z-index: 2000; left: 0; top: 0;
     width: 100%; height: 100%; overflow: auto;
-    background-color: rgba(0,0,0,0.6); /* 배경 어둡게 */
+    background-color: rgba(0,0,0,0.85); /* 배경 더 어둡게 */
     backdrop-filter: blur(5px);
 }
 .modal-content {
-    background-color: #fff;
-    margin: 5% auto; /* 화면 중앙 배치 */
-    padding: 50px;
-    border-radius: 15px;
+    background-color: #1e1e1e; /* 모달 배경도 다크 */
+    color: var(--text-main);
+    margin: 5% auto; padding: 50px; border-radius: 10px;
     width: 90%; max-width: 900px;
-    position: relative;
-    box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    border: 1px solid #333;
     animation: slideUp 0.4s ease;
 }
 @keyframes slideUp { from {transform: translateY(50px); opacity: 0;} to {transform: translateY(0); opacity: 1;} }
 
-.close-btn {
-    color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer; transition: 0.3s;
-}
-.close-btn:hover { color: #000; }
+.close-btn { color: #666; float: right; font-size: 28px; cursor: pointer; }
+.close-btn:hover { color: var(--accent); }
 
-/* 모달 내부 타이포그래피 */
-.modal-body h2 { font-size: 2rem; margin-bottom: 10px; color: #111; }
-.modal-body .meta { color: #666; font-size: 0.95rem; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #eee; }
-.modal-body h5 { font-size: 1.2rem; color: #007bff; margin: 30px 0 15px 0; font-weight: 700; }
-.modal-body p { margin-bottom: 10px; color: #444; }
-.modal-body ul { margin-left: 20px; list-style-type: disc; margin-bottom: 20px; color: #555; }
-.modal-body li { margin-bottom: 8px; }
-.modal-body strong { color: #222; font-weight: 600; }
+/* 모달 내부 텍스트 */
+.modal-body h2 { color: #fff; border-bottom: none; }
+.modal-body .meta { color: var(--text-sub); border-bottom: 1px solid #333; }
+.modal-body h5 { color: var(--accent); margin-top: 35px; border-bottom: 1px solid #333; padding-bottom: 5px; }
+.modal-body p, .modal-body li { color: #ccc; }
+.modal-body strong { color: #fff; }
+.modal-body code {
+    background: #333; color: var(--accent); padding: 2px 5px; border-radius: 3px; font-family: monospace;
+}
+
 .github-btn {
-    display: inline-block; margin-top: 30px; background: #24292e; color: white;
-    padding: 12px 25px; border-radius: 8px; font-weight: bold;
+    display: inline-block; margin-top: 30px;
+    background: transparent; color: #fff; border: 1px solid #fff;
+    padding: 12px 25px; border-radius: 4px; font-weight: bold; transition: 0.3s;
 }
-.github-btn:hover { background: #444; }
+.github-btn:hover { background: #fff; color: #000; }
 
-/* 푸터 */
-footer { background: #1a1a1a; color: #fff; text-align: center; padding: 50px 0; margin-top: 50px;}
-footer p { color: #888; margin-bottom: 10px; }
+/* 8. 푸터 */
+footer { background: #0a0a0a; color: #666; text-align: center; padding: 60px 0; margin-top: 80px; border-top: 1px solid #222; }
