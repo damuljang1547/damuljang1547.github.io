@@ -3,9 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>심's Portfolio - Data Engineer</title>
+    <title>심's Portfolio - Backend & DB Engineer</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* 추가된 스타일: 프로필 카드 & 슬라이더 (style.css에 없어도 여기서 작동하도록 포함) */
+        
+        /* 프로필 카드 */
+        .profile-card {
+            background: #fff; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            padding: 50px; display: flex; align-items: center; justify-content: center;
+            gap: 60px; max-width: 900px; margin: 50px auto 0; border: 1px solid #f0f0f0;
+        }
+        .profile-img img { width: 200px; height: 200px; border-radius: 50%; object-fit: cover; border: 5px solid #f8f9fa; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .profile-info { flex-grow: 1; display: flex; flex-direction: column; gap: 15px; }
+        .info-row { display: flex; align-items: center; border-bottom: 1px solid #f4f4f4; padding-bottom: 10px; }
+        .info-row:last-child { border-bottom: none; }
+        .info-row .label { font-weight: 700; color: #333; width: 100px; }
+        .info-row .value { color: #555; }
+        @media (max-width: 768px) { .profile-card { flex-direction: column; text-align: center; gap: 30px; } .info-row { flex-direction: column; } }
+
+        /* 이미지 슬라이더 */
+        .slider-container { position: relative; max-width: 100%; margin: 20px 0; overflow: hidden; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); background: #eee; }
+        .slider-wrapper { display: flex; transition: transform 0.5s ease-in-out; width: 100%; }
+        .slide { min-width: 100%; box-sizing: border-box; }
+        .slide img { width: 100%; height: auto; display: block; aspect-ratio: 16 / 9; object-fit: cover; }
+        .prev-btn, .next-btn { cursor: pointer; position: absolute; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; background-color: rgba(0,0,0,0.5); color: white; border: none; border-radius: 50%; font-size: 18px; display: flex; align-items: center; justify-content: center; transition: 0.3s; z-index: 10; }
+        .prev-btn { left: 15px; } .next-btn { right: 15px; }
+        .slider-dots { position: absolute; bottom: 15px; width: 100%; text-align: center; }
+        .dot { cursor: pointer; height: 10px; width: 10px; margin: 0 5px; background-color: rgba(255,255,255,0.5); border-radius: 50%; display: inline-block; }
+        .active, .dot:hover { background-color: white; }
+    </style>
 </head>
 <body>
 
@@ -25,15 +53,27 @@
 
     <section class="hero">
         <div class="hero-content">
-            <h2>Data Reliability Engineer<br><span style="font-weight:400; font-size: 2rem;">Junior Portfolio</span></h2>
-            <p>데이터의 흐름을 설계하고 시스템의 안정성을 책임지는 엔지니어입니다.</p>
-            <a href="#projects" class="btn">핵심 프로젝트 보기</a>
+            <h2>Backend & Database Engineer<br>
+                <span style="font-weight:400; font-size: 1.6rem; color: #666; letter-spacing: 1px;">
+                    Junior Portfolio
+                </span>
+            </h2>
+            
+            <p style="margin-top: 25px; font-size: 1.15rem; color: #555; line-height: 1.8;">
+                <b>"이론을 넘어 실무로 나아갈 준비가 되었습니다."</b><br>
+                화려한 경력은 없지만, 탄탄한 기본기와 집요한 문제 해결 능력을 갖췄습니다.<br>
+                데이터의 가치를 소중히 여기며, 어제보다 더 성장하기 위해<br>
+                배움을 멈추지 않고 끊임없이 달릴 준비가 된 엔지니어입니다.
+            </p>
+            
+            <a href="#projects" class="btn" style="margin-top: 30px;">
+                가능성 확인하기
+            </a>
         </div>
     </section>
 
     <section id="about" class="container section-padding">
         <h3>About Me</h3>
-        
         <p style="text-align: center; max-width: 800px; margin: 0 auto; font-size: 1.1rem; color: #555; line-height: 1.8; margin-bottom: 50px;">
             <b>"안정적인 데이터 아키텍처가 서비스의 품질을 결정합니다."</b><br><br>
             백엔드 개발을 공부하며, 코드를 짜는 것만큼이나 데이터를 어떻게 저장하고 효율적으로 꺼내올지 고민하는 과정에 매력을 느꼈습니다.
@@ -43,51 +83,24 @@
         </p>
 
         <div class="profile-card">
-            
             <div class="profile-img">
                 <img src="https://ui-avatars.com/api/?name=Sim&background=2563eb&color=fff&size=256" alt="프로필 이미지">
             </div>
-
             <div class="profile-info">
-                <div class="info-row">
-                    <span class="icon">👤</span>
-                    <span class="label">이름</span>
-                    <span class="value">장현서</span>
-                </div>
-                <div class="info-row">
-                    <span class="icon">🎂</span>
-                    <span class="label">생년월일</span>
-                    <span class="value">2002.12.00</span>
-                </div>
-                <div class="info-row">
-                    <span class="icon">📍</span>
-                    <span class="label">주소지</span>
-                    <span class="value">경기도 하남시</span>
-                </div>
-                <div class="info-row">
-                    <span class="icon">📞</span>
-                    <span class="label">연락처</span>
-                    <span class="value">010-2122-6001</span>
-                </div>
-                <div class="info-row">
-                    <span class="icon">📧</span>
-                    <span class="label">이메일</span>
-                    <span class="value">klikliapple@gmail.com</span>
-                </div>
-                <div class="info-row">
-                    <span class="icon">🎓</span>
-                    <span class="label">학력</span>
-                    <span class="value">신구대학교 컴퓨터 소프트웨어과 (졸업 예정)</span>
-                </div>
+                <div class="info-row"><span class="label">이름</span><span class="value">심길동</span></div>
+                <div class="info-row"><span class="label">생년월일</span><span class="value">2000.00.00</span></div>
+                <div class="info-row"><span class="label">주소지</span><span class="value">경기도 하남시</span></div>
+                <div class="info-row"><span class="label">연락처</span><span class="value">010-1234-5678</span></div>
+                <div class="info-row"><span class="label">이메일</span><span class="value">damuljang1547@example.com</span></div>
+                <div class="info-row"><span class="label">학력</span><span class="value">OO대학교 컴퓨터공학과 (졸업예정)</span></div>
             </div>
         </div>
-        </section>
+    </section>
 
     <section id="skills" class="bg-light section-padding">
         <div class="container">
             <h3>Technical Skills</h3>
             <div class="skills-grid">
-                
                 <div class="skill-card">
                     <h4>Languages & Frameworks</h4>
                     <p><strong>Java (Spring Boot)</strong> - Backend API</p>
@@ -95,7 +108,6 @@
                     <p><strong>C++</strong> - Algorithm & System</p>
                     <p>JavaScript / React / Next.js</p>
                 </div>
-
                 <div class="skill-card">
                     <h4>Database Engineering</h4>
                     <p><strong>MySQL 8.0</strong> (InnoDB, Transaction)</p>
@@ -103,14 +115,12 @@
                     <p>Data Modeling (Logical/Physical)</p>
                     <p>Execution Plan Analysis</p>
                 </div>
-
                 <div class="skill-card">
                     <h4>Infrastructure & OS</h4>
                     <p><strong>AWS</strong> (RDS, EC2, S3)</p>
                     <p><strong>Linux</strong> (Ubuntu, Shell Script)</p>
                     <p>Web Server (Apache/Nginx)</p>
                 </div>
-
                 <div class="skill-card">
                     <h4>Tools & Collaboration</h4>
                     <p><strong>Git / GitHub</strong> (Version Control)</p>
@@ -118,7 +128,6 @@
                     <p>MySQL Workbench / DBeaver</p>
                     <p>VS Code / IntelliJ</p>
                 </div>
-
             </div>
         </div>
     </section>
@@ -128,72 +137,93 @@
         
         <div class="project-card-link" onclick="openModal()">
             <div class="card-body">
-                <span style="color:#007bff; font-weight:bold; font-size:0.9rem;">PERSONAL PROJECT</span>
+                <span style="color:#2563eb; font-weight:bold; font-size:0.9rem;">PERSONAL PROJECT</span>
                 <h4>✈️ Travel Link</h4>
                 <p class="summary">
-                    AI 기반 여행 계획 공유 플랫폼 & DB 아키텍처 설계 프로젝트<br>
-                    <span style="font-size: 0.9rem; color: #888;">(동시성 제어 및 쿼리 튜닝 성과 포함)</span>
+                    AI 기반 여행 계획 공유 플랫폼 & DB 아키텍처 설계<br>
+                    <span style="font-size: 0.9rem; color: #888;">(React, Python FastAPI, MySQL 8.0)</span>
                 </p>
                 <div class="tags">
-                    <span>MySQL 8.0</span>
-                    <span>AWS Aurora</span>
-                    <span>FastAPI</span>
                     <span>Concurrency Control</span>
+                    <span>Query Tuning</span>
+                    <span>Hybrid Modeling</span>
+                    <span>AWS Aurora</span>
                 </div>
-                <div class="click-hint">자세한 내용 보기 ↗</div>
+                <div class="click-hint">프로젝트 상세 및 성과 보기 ↗</div>
             </div>
         </div>
-
     </section>
 
-<div id="projectModal" class="modal">
+    <div id="projectModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal()">&times;</span>
             
             <div class="modal-body">
                 <h2>Travel Link Project</h2>
-                <div class="meta">
+                
+                <div class="slider-container">
+                    <div class="slider-wrapper" id="sliderWrapper">
+                        <div class="slide"><img src="img/TL/TL1.png" alt="메인 화면"></div>
+                        <div class="slide"><img src="img/TL/TL2.png" alt="여행 계획 작성"></div>
+                        <div class="slide"><img src="img/TL/TL3.png" alt="AI 추천 결과"></div>
+                        <div class="slide"><img src="img/TL/TL4.png" alt="기타 화면"></div>
+                    </div>
+                    <button class="prev-btn" onclick="moveSlide(-1)">&#10094;</button>
+                    <button class="next-btn" onclick="moveSlide(1)">&#10095;</button>
+                    <div class="slider-dots">
+                        <span class="dot active" onclick="currentSlide(0)"></span>
+                        <span class="dot" onclick="currentSlide(1)"></span>
+                        <span class="dot" onclick="currentSlide(2)"></span>
+                        <span class="dot" onclick="currentSlide(3)"></span>
+                    </div>
+                </div>
+
+                <div class="meta" style="margin-top: 20px;">
                     <strong>Stack:</strong> React, Python FastAPI, MySQL 8.0, AWS RDS &nbsp;|&nbsp; 
                     <strong>Role:</strong> Backend & DB Engineer
                 </div>
 
-                <h5>1. [The Architect] 요구사항 분석 및 설계 의도</h5>
-                <p><strong>비즈니스 요구사항:</strong> 사용자의 취향에 따라 매번 달라지는 여행 코스(비정형 데이터)와 회원/예약 정보(정형 데이터)를 효율적으로 저장해야 함.</p>
-                
-                <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-top: 10px;">
-                    <ul style="margin: 0;">
-                        <li><strong>데이터 모델링 전략 (Hybrid Design):</strong> 정규화(Normalization)를 기본으로 하되, 비정형 데이터 처리를 위해 반정규화를 혼합.</li>
-                        <li><strong>설계 의도:</strong> 여행 세부 일정은 수정이 잦고 구조가 가변적이므로, 별도 테이블 분리 시 수백 번의 JOIN 발생 우려. → <strong>MySQL JSON Type</strong>을 도입하여 유연성 확보.</li>
-                    </ul>
-                </div>
+                <h5>1. Project Overview</h5>
+                <p>
+                    Google <strong>Gemini API</strong>를 활용하여 개인화된 여행 경로와 맛집을 추천하고, 동행자를 모집하는 플랫폼입니다.<br>
+                    <strong>React</strong>로 직관적인 UI를 구성하고, <strong>Python FastAPI</strong>로 고성능 비동기 서버를 구축했습니다.
+                </p>
 
-                <h5>2. Entity Relationship Diagram (ERD)</h5>
+                <h5>2. [The Architect] Hybrid DB Modeling</h5>
+                <p>비정형 데이터(AI 응답)와 정형 데이터(회원/예약)를 효율적으로 처리하기 위해 <strong>Hybrid 설계</strong>를 도입했습니다.</p>
+                <ul>
+                    <li><strong>Problem:</strong> 여행 일정은 구조가 가변적이라 정규화 시 수백 번의 JOIN 발생 및 스키마 경직성 확인.</li>
+                    <li><strong>Solution:</strong> MySQL 8.0 <strong>JSON Type</strong>을 도입하여 가변 데이터를 반정규화하여 저장.</li>
+                    <li><strong>Impact:</strong> 스키마 변경 없이 AI 모델 업데이트에 유연하게 대처, 조회 쿼리 복잡도 70% 감소.</li>
+                </ul>
+
+                <h5>3. Entity Relationship Diagram (ERD)</h5>
                 <div style="text-align: center; margin: 20px 0; border: 1px solid #eee; padding: 10px; border-radius: 8px;">
-                    <img src="img/TL/TL-ERD.png" alt="Travel Link ERD 구조도" style="max-width: 100%; height: auto; border-radius: 4px;">
-                    <p style="font-size: 0.85rem; color: #888; margin-top: 10px;">* 여행 계획(Plans)과 세부 일정(Details)의 1:N 관계 및 JSON 컬럼 활용 구조</p>
+                    <img src="img/TL/TL-ERD.png" alt="Travel Link ERD" style="max-width: 100%; height: auto; border-radius: 4px;">
+                    <p style="font-size: 0.85rem; color: #888; margin-top: 10px;">* Plans(여행계획)와 Details(상세일정)의 관계 및 JSON 컬럼 활용</p>
                 </div>
 
-                <h5>3. [The Problem Solver] 성능 최적화 및 튜닝</h5>
-                <p>메인 리스트 조회 시 발생하던 <strong>Slow Query (3.8s → 0.03s)</strong> 개선 사례입니다.</p>
+                <h5>4. [The Problem Solver] Query Tuning</h5>
+                <p>여행지 리스트 조회 시 발생하던 <strong>Slow Query (3.8s → 0.03s)</strong>를 개선했습니다.</p>
                 <ul>
-                    <li><strong>문제(Problem):</strong> <code>WHERE region = ? AND status = ? ORDER BY created_at</code> 쿼리 실행 시 <strong>Full Table Scan</strong> 및 <strong>FileSort</strong> 발생 확인.</li>
-                    <li><strong>해결(Solution):</strong> 카디널리티(Cardinality)가 높은 순서대로 <code>(region, status, created_at)</code> <strong>복합 인덱스(Composite Index)</strong> 설계 및 적용.</li>
-                    <li><strong>결과(Result):</strong> 쿼리 실행 시간 약 <strong>120배 단축</strong> 및 DB CPU 부하 40% 감소.</li>
+                    <li><strong>Analysis:</strong> <code>EXPLAIN</code> 분석 결과 <code>type: ALL</code>(Full Table Scan) 및 <code>Using filesort</code> 발생 확인.</li>
+                    <li><strong>Optimization:</strong> 카디널리티를 고려한 <code>(region, status, created_at)</code> <strong>복합 인덱스</strong> 설계.</li>
+                    <li><strong>Metrics:</strong> 쿼리 속도 약 <strong>120배 단축</strong> 달성.</li>
                 </ul>
 
-                <h5>4. [The Engineer] 동시성 제어</h5>
-                <p>선착순 '참여하기' 기능에서 발생한 <strong>초과 예약(Race Condition)</strong> 방어.</p>
+                <h5>5. [The Engineer] Concurrency Control</h5>
+                <p>선착순 참여 기능에서 발생한 <strong>초과 예약(Race Condition)</strong> 문제를 해결했습니다.</p>
                 <ul>
-                    <li><strong>상황:</strong> 마지막 1자리 남았을 때 동시 요청 시 정원 초과 저장 문제.</li>
-                    <li><strong>해결:</strong> 트랜잭션 격리 수준을 고려하여 <strong>비관적 락(Pessimistic Lock, <code>FOR UPDATE</code>)</strong> 적용.</li>
-                    <li><strong>검증:</strong> JMeter 부하 테스트 결과 정합성 <strong>100%</strong> 유지.</li>
+                    <li><strong>Situation:</strong> 마지막 1자리 남았을 때 동시 요청 시 정원 초과 저장 문제.</li>
+                    <li><strong>Solution:</strong> 트랜잭션 격리 수준을 고려하여 <strong>비관적 락(Pessimistic Lock, <code>FOR UPDATE</code>)</strong> 적용.</li>
+                    <li><strong>Verification:</strong> JMeter 부하 테스트 결과 정합성 <strong>100%</strong> 유지.</li>
                 </ul>
 
-                <a href="https://github.com/damuljang1547" class="github-btn" target="_blank">📂 GitHub 소스코드 & 상세 설계 문서</a>
+                <a href="https://github.com/damuljang1547" class="github-btn" target="_blank">📂 GitHub 소스코드 & 문서 보기</a>
             </div>
         </div>
     </div>
-    
+
     <footer id="contact">
         <div class="container">
             <h3>Contact</h3>
@@ -204,22 +234,44 @@
     </footer>
 
     <script>
-        // 모달 열기
+        // 모달 열기/닫기
         function openModal() {
             document.getElementById('projectModal').style.display = 'block';
-            document.body.style.overflow = 'hidden'; // 스크롤 막기
+            document.body.style.overflow = 'hidden';
+            currentSlide(0); // 열 때 첫 번째 이미지부터
         }
-        // 모달 닫기
         function closeModal() {
             document.getElementById('projectModal').style.display = 'none';
-            document.body.style.overflow = 'auto'; // 스크롤 풀기
+            document.body.style.overflow = 'auto';
         }
-        // 배경 클릭 시 닫기
         window.onclick = function(event) {
-            var modal = document.getElementById('projectModal');
-            if (event.target == modal) {
-                closeModal();
-            }
+            if (event.target == document.getElementById('projectModal')) closeModal();
+        }
+
+        // 슬라이더 로직
+        let slideIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.dot');
+        const wrapper = document.getElementById('sliderWrapper');
+        const totalSlides = slides.length;
+
+        function updateSlidePosition() {
+            if(totalSlides === 0) return;
+            wrapper.style.transform = 'translateX(' + (-slideIndex * 100) + '%)';
+            dots.forEach(dot => dot.classList.remove('active'));
+            if(dots[slideIndex]) dots[slideIndex].classList.add('active');
+        }
+
+        function moveSlide(n) {
+            slideIndex += n;
+            if (slideIndex >= totalSlides) slideIndex = 0;
+            if (slideIndex < 0) slideIndex = totalSlides - 1;
+            updateSlidePosition();
+        }
+
+        function currentSlide(n) {
+            slideIndex = n;
+            updateSlidePosition();
         }
     </script>
 </body>
